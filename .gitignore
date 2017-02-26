@@ -191,3 +191,8 @@ Cert/
 *.ps_*.Debug.txt
 *.vs_*.Debug.cso
 *.vs_*.Debug.txt 
+Desktop/IconLibrary.WinFormsSample/bin/Debug/IconLibrary.WinFormsSample.exe
+*.pdb
+Desktop/IconLibrary.WinFormsSample/obj/Debug/IconLibrary.WinFormsSample.exe
+*.exe
+.vs/IconLibrary/v14/.suo

@@ -3,17 +3,14 @@
     [IconEnum(nameof(IconLibrary))]
     public enum EditorIcon
     {
-        Adapter,
+        Abc,
         Close,
-        Floor,
         Help,
         Open,
+        Import,
         Save,
         Screenshot,
-        Wireframe,
         Refresh,
-        ModelEdit,
-        World,
         Page
     }
 }

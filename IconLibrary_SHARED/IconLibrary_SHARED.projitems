@@ -19,23 +19,29 @@
     <Compile Include="$(MSBuildThisFileDirectory)_Misc.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\Adapter_16x16.png" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\Close_16x16.png" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\Floor_16x16.png" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\Help_16x16.png" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\ModelEdit_16x16.png" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\Open_16x16.png" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\Page_16x16.png" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\Refresh_16x16.png" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\Save_16x16.png" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\Screenshot_16x16.png" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\Wireframe_16x16.png" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\World_16x16.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\VectorIcon\CheckList.svg" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\VectorIcon\TruckMove.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\Open.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\Import.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\Save.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\Close.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\Abc.svg" />
   </ItemGroup>
 </Project>
