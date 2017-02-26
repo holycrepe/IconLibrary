@@ -1,7 +1,7 @@
 ﻿namespace IconLibrary
 {
     [IconEnum(nameof(IconLibrary))]
-    public enum LogisticIcon
+    public enum VectorIcon
     {
         CheckList,
 

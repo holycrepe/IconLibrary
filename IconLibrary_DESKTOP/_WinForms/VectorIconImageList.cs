@@ -11,7 +11,7 @@ using System.Reflection;
 namespace IconLibrary
 {
     [DesignTimeVisible(true)]
-    public class VectorIconImageList : IconImageListBase<LogisticIcon>
+    public class VectorIconImageList : IconImageListBase<VectorIcon>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EditorIconImageList"/> class.

@@ -1,5 +1,6 @@
 ﻿using IconLibrary.Caching;
 using System;
+using System.Drawing;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -14,14 +15,10 @@ namespace IconLibrary
     public partial class IconImageListBase<EnumType> : Component
         where EnumType : struct
     {
-        #region Constants
-        private const int DEFAULT_IMAGE_SIDE_WIDTH = 16;
-        #endregion
-
         #region Generic
         private TargetObjectInfo[] m_targets;
         private IconCollectionInfo m_collectionInfo;
-        private int m_imageSideWidth;
+        private Control m_hostControl;
         #endregion
 
         /// <summary>
@@ -35,24 +32,56 @@ namespace IconLibrary
                 m_targets[loop] = new TargetObjectInfo(this);
             }
 
-            m_imageSideWidth = DEFAULT_IMAGE_SIDE_WIDTH;
-
             m_collectionInfo = new IconCollectionInfo(typeof(EnumType));
         }
 
         [Category("Configuration")]
-        [DefaultValue(DEFAULT_IMAGE_SIDE_WIDTH)]
+        [DefaultValue(IconCollectionInfo.DEFAULT_ICON_SIDE_WIDTH)]
         public int ImageSideWidth
         {
-            get { return m_imageSideWidth; }
+            get { return m_collectionInfo.IconSideWidth; }
             set
             {
-                if(m_imageSideWidth != value)
+                if(m_collectionInfo.IconSideWidth != value)
                 {
-                    m_imageSideWidth = value;
-                    if(m_imageSideWidth < 16) { m_imageSideWidth = 16; }
-                    
+                    m_collectionInfo.IconSideWidth = value;
                     foreach(var actTarget in m_targets)
+                    {
+                        actTarget.UpdateTargetObject();
+                    }
+                }
+            }
+        }
+
+        [Category("Configuration")]
+        public Color ForeColor
+        {
+            get { return Color.FromArgb(m_collectionInfo.IconForeColor); }
+            set
+            {
+                int argb = value.ToArgb();
+                if(m_collectionInfo.IconForeColor != argb)
+                {
+                    m_collectionInfo.IconForeColor = argb;
+
+                    foreach (var actTarget in m_targets)
+                    {
+                        actTarget.UpdateTargetObject();
+                    }
+                }
+            }
+        }
+
+        [Category("Configuration")]
+        public Control HostControl
+        {
+            get { return m_hostControl; }
+            set
+            {
+                if(m_hostControl != value)
+                {
+                    m_hostControl = value;
+                    foreach (var actTarget in m_targets)
                     {
                         actTarget.UpdateTargetObject();
                     }
@@ -95,7 +124,7 @@ namespace IconLibrary
                 {
                     targetButton.Image = IconImageCache.Current.GetGdiImage(
                         m_owner.m_collectionInfo,
-                        new IconFileInfo(m_icon.ToString(), m_owner.ImageSideWidth));
+                        new IconFileInfo(m_icon.ToString()));
                     return;
                 }
 
@@ -104,7 +133,7 @@ namespace IconLibrary
                 {
                     targetToolStrip.Image = IconImageCache.Current.GetGdiImage(
                         m_owner.m_collectionInfo,
-                        new IconFileInfo(m_icon.ToString(), m_owner.ImageSideWidth));
+                        new IconFileInfo(m_icon.ToString()));
                     return;
                 }
             }

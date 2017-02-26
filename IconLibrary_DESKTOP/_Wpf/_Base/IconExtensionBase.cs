@@ -26,7 +26,7 @@ namespace IconLibrary
         {
             BitmapImage result = IconImageCache.Current.GetWpfBitmapImage(
                 m_collectionInfo,
-                new IconFileInfo(this.Icon.ToString(), this.SideWidth));
+                new IconFileInfo(this.Icon.ToString()));
 
             // Create the result object
             switch (this.ResultType)

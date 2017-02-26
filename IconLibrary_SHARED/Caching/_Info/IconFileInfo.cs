@@ -9,19 +9,12 @@ namespace IconLibrary.Caching
 {
     public struct IconFileInfo
     {
-        public IconFileInfo(string imageName, int imageSideWidth)
+        public IconFileInfo(string imageName)
         {
             this.ImageName = imageName;
-            this.ImageSideWidth = imageSideWidth;
         }
 
         public string ImageName
-        {
-            get;
-            set;
-        }
-
-        public int ImageSideWidth
         {
             get;
             set;

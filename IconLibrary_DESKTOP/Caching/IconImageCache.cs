@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IconLibrary.Util;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
@@ -61,6 +62,15 @@ namespace IconLibrary.Caching
             return result;
         }
 
+        public System.Drawing.Image GetGdiImage<EnumType>(EnumType icon, int sideWidth, Color foreColor)
+            where EnumType : struct
+        {
+            IconCollectionInfo collectionInfo = new IconCollectionInfo(typeof(EnumType));
+            collectionInfo.IconSideWidth = sideWidth;
+            collectionInfo.IconForeColor = foreColor.ToArgb();
+            return GetGdiImage(collectionInfo, new IconFileInfo(icon.ToString()));
+        }
+
         internal System.Drawing.Image GetGdiImage(IconCollectionInfo collectionInfo, IconFileInfo fileInfo)
         {
             string iconFileKey = GetIconFileKey(collectionInfo, fileInfo);
@@ -77,8 +87,8 @@ namespace IconLibrary.Caching
                     using (Stream inStream = svgIconLink.OpenRead())
                     {
                         Svg.SvgDocument svgDoc = Svg.SvgDocument.Open<Svg.SvgDocument>(inStream);
-                        System.Drawing.Bitmap targetBitmap = new System.Drawing.Bitmap(fileInfo.ImageSideWidth, fileInfo.ImageSideWidth);
-                        using (Svg.ISvgRenderer svgRenderer = Svg.SvgRenderer.FromImage(targetBitmap))
+                        System.Drawing.Bitmap targetBitmap = new System.Drawing.Bitmap(collectionInfo.IconSideWidth, collectionInfo.IconSideWidth);
+                        using (CustomSvgRenderer svgRenderer = new CustomSvgRenderer(targetBitmap, Color.FromArgb(collectionInfo.IconForeColor)))
                         {
                             svgDoc.Overflow = Svg.SvgOverflow.Auto;
 

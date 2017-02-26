@@ -35,9 +35,15 @@ namespace IconLibrary.Caching
         /// </summary>
         internal string GetIconFileKey(IconCollectionInfo collectionInfo, IconFileInfo fileInfo)
         {
-            string resourcePath =
-                $"{collectionInfo.IconAssemblyDefaultNamespace}.Assets.Icons.{collectionInfo.IconEnumType.Name}.{fileInfo.ImageName}_{fileInfo.ImageSideWidth}x{fileInfo.ImageSideWidth}";
-            return $"{collectionInfo.IconAssembly.GetName().Name}:{resourcePath}";
+            StringBuilder keyBuilder = new StringBuilder(100);
+            keyBuilder.Append($"{collectionInfo.IconAssembly.GetName().Name}");
+            keyBuilder.Append(':');
+            keyBuilder.Append($"{collectionInfo.IconAssemblyDefaultNamespace}.Assets.Icons.{collectionInfo.IconEnumType.Name}.{fileInfo.ImageName}");
+            keyBuilder.Append('_');
+            keyBuilder.Append($"{collectionInfo.IconSideWidth}x{collectionInfo.IconSideWidth}");
+            keyBuilder.Append('_');
+            keyBuilder.Append(collectionInfo.IconForeColor);
+            return keyBuilder.ToString();
         }
 
         /// <summary>
@@ -50,7 +56,7 @@ namespace IconLibrary.Caching
         {
             string resourcePath = string.Empty;
             AssemblyResourceLink resourceLink = null;
-            int actIconsize = fileInfo.ImageSideWidth;
+            int actIconsize = collectionInfo.IconSideWidth;
             do
             {
                 resourcePath =

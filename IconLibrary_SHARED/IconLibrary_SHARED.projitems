@@ -14,7 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Caching\_Info\IconFileInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Caching\_Info\_Misc.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Caching\_Util\AssemblyResourceLink.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)LogisticIcon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VectorIcon.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EditorIcon.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)_Misc.cs" />
   </ItemGroup>
@@ -33,9 +33,9 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\World_16x16.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\LogisticIcon\CheckList.svg" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\VectorIcon\CheckList.svg" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\LogisticIcon\TruckMove.svg" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\VectorIcon\TruckMove.svg" />
   </ItemGroup>
 </Project>

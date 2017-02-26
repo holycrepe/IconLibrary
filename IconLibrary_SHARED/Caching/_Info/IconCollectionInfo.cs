@@ -9,9 +9,13 @@ namespace IconLibrary.Caching
 {
     public class IconCollectionInfo
     {
+        public const int DEFAULT_ICON_SIDE_WIDTH = 16;
+
         public IconCollectionInfo(Type enumType)
         {
             this.IconEnumType = enumType;
+            this.IconSideWidth = DEFAULT_ICON_SIDE_WIDTH;
+            this.IconForeColor = -16777216; // Black
         }
 
         public string IconAssemblyDefaultNamespace
@@ -35,6 +39,18 @@ namespace IconLibrary.Caching
         {
             get;
             private set;
+        }
+
+        public int IconSideWidth
+        {
+            get;
+            set;
+        }
+
+        public int IconForeColor
+        {
+            get;
+            set;
         }
     }
 }
