@@ -14,6 +14,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Caching\_Info\IconFileInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Caching\_Info\_Misc.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Caching\_Util\AssemblyResourceLink.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IcvFormat\IcvFigure.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IcvFormat\IcvIcon.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)VectorIcon.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EditorIcon.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)_Misc.cs" />

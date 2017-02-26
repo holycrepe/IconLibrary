@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -9,17 +8,19 @@ using System.Threading.Tasks;
 
 namespace IconLibrary.IconConverter.Files
 {
-    public class SvgIconFile : IconFile
+    public class IcvIconFile : IconFile
     {
-        public SvgIconFile(string filePath)
-            : base(Path.GetFileNameWithoutExtension(filePath))
+
+
+        public IcvIconFile(string filePath)
+            : base(Path.GetFileName(filePath))
         {
 
         }
 
         public override void Draw(Graphics target, int width, int height)
         {
-            
+          
         }
     }
 }

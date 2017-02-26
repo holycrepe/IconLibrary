@@ -23,6 +23,26 @@ namespace IconLibrary.IconConverter
             InitializeComponent();
         }
 
+        private void OnPanRenderPanel_Paint(object sender, PaintEventArgs e)
+        {
+            var graphics = e.Graphics;
+            using (Brush fillBrush = new SolidBrush(Color.White))
+            {
+                graphics.FillRectangle(fillBrush, e.ClipRectangle);
+            }
+
+            int sideWidth = e.ClipRectangle.Width;
+            if(e.ClipRectangle.Height < sideWidth) { sideWidth = e.ClipRectangle.Height; }
+
+            var selectedFile = m_lstIcons.SelectedItem as IconFile;
+            if(selectedFile != null)
+            {
+                graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+
+                selectedFile.Draw(graphics, sideWidth, sideWidth);
+            }
+        }
+
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -35,8 +55,14 @@ namespace IconLibrary.IconConverter
         {
             if(m_dlgImportFile.ShowDialog(this) == DialogResult.OK)
             {
-                m_fileContainer.IconFiles.Add(
-                    new SvgIconFile(m_dlgImportFile.FileName));
+                SvgIconFile iconFile = null;
+                foreach(string actFile in m_dlgImportFile.FileNames)
+                {
+                    iconFile = new SvgIconFile(actFile);
+                    m_fileContainer.IconFiles.Add(iconFile);
+                }
+
+                if (iconFile != null) { m_lstIcons.SelectedItem = iconFile; }
             }
         }
 
@@ -44,6 +70,21 @@ namespace IconLibrary.IconConverter
         {
             m_propSelectedFile.SelectedObject =
                 m_lstIcons.SelectedItem;
+
+            m_panRenderPanel.Invalidate();
+        }
+
+        private void OnRefreshTimer_Tick(object sender, EventArgs e)
+        {
+            m_panRenderPanel.Invalidate();
+        }
+
+        private void OnSplitterPanel_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.DrawRectangle(
+                Pens.Gray,
+                e.ClipRectangle.X, e.ClipRectangle.Y,
+                e.ClipRectangle.Width -1, e.ClipRectangle.Height - 1);
         }
     }
 }
