@@ -1,0 +1,64 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+<# int maxItemCount = 50; #>
+using IconLibrary.Caching;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace IconLibrary
+{
+    public partial class IconImageListBase<EnumType>
+    {
+        #region Constants
+        private const int MAX_COUNT_OF_ITEMS = <#= maxItemCount #>;
+        #endregion
+
+        //*********************************************************************
+        //*********************************************************************
+        //*********************************************************************
+        // Accessors for all objects
+<# for(int loop=0; loop<maxItemCount; loop++)
+   { 
+#>
+
+        [Browsable(false)]
+        [DefaultValue(null)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        public Component Object<#=(loop + 1).ToString().PadLeft(3, '0')#>
+        {
+            get { return m_targets[<#=loop #>].TargetObject; }
+            set { m_targets[<#=loop #>].TargetObject = value; }
+        }
+
+        [Browsable(false)]
+        [DefaultValue("")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        public string Object<#=(loop + 1).ToString().PadLeft(3, '0')#>Icon
+        {
+            get 
+            {
+                if(m_targets[<#=loop #>].Icon.Equals(default(EnumType))){ return ""; }
+                return m_targets[<#=loop #>].Icon.ToString(); 
+            }
+            set 
+            { 
+                EnumType iconItem = default(EnumType);
+                if(!Enum.TryParse<EnumType>(value, out iconItem)){ return; }
+                m_targets[<#=loop #>].Icon = iconItem; 
+            }
+        }
+<#
+   }
+#>
+    }
+}

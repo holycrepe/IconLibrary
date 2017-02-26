@@ -1,0 +1,8 @@
+D:\Projects\GitHub\RolandKoenig\IconLibrary\IconLibrary_DESKTOP\bin\Debug\IconLibrary.dll
+D:\Projects\GitHub\RolandKoenig\IconLibrary\IconLibrary_DESKTOP\bin\Debug\IconLibrary.pdb
+D:\Projects\GitHub\RolandKoenig\IconLibrary\IconLibrary_DESKTOP\obj\Debug\IconLibrary.dll
+D:\Projects\GitHub\RolandKoenig\IconLibrary\IconLibrary_DESKTOP\obj\Debug\IconLibrary.pdb
+D:\Projects\GitHub\RolandKoenig\IconLibrary\IconLibrary_DESKTOP\obj\Debug\IconLibrary_DESKTOP.csprojResolveAssemblyReference.cache
+D:\Projects\GitHub\RolandKoenig\IconLibrary\IconLibrary_DESKTOP\bin\Debug\Svg.dll
+D:\Projects\GitHub\RolandKoenig\IconLibrary\IconLibrary_DESKTOP\bin\Debug\Svg.pdb
+D:\Projects\GitHub\RolandKoenig\IconLibrary\IconLibrary_DESKTOP\bin\Debug\Svg.xml

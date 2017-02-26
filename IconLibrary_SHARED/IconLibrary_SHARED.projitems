@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>2f5e2efb-47af-4e93-8286-0311034e1e03</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>IconLibrary</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Caching\IconImageCache.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Caching\_Info\IconCollectionInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Caching\_Info\IconFileInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Caching\_Info\_Misc.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Caching\_Util\AssemblyResourceLink.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LogisticIcon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EditorIcon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)_Misc.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\Adapter_16x16.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\Close_16x16.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\Floor_16x16.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\Help_16x16.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\ModelEdit_16x16.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\Open_16x16.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\Page_16x16.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\Refresh_16x16.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\Save_16x16.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\Screenshot_16x16.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\Wireframe_16x16.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\EditorIcon\World_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\LogisticIcon\CheckList.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Icons\LogisticIcon\TruckMove.svg" />
+  </ItemGroup>
+</Project>
