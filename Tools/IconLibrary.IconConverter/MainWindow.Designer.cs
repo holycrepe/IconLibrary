@@ -213,7 +213,7 @@ namespace IconLibrary.IconConverter
             // m_iconsEditor
             // 
             this.m_iconsEditor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.m_iconsEditor.HostControl = null;
+            this.m_iconsEditor.HostControl = this;
             this.m_iconsEditor.Object001 = this.m_toolImportFontSymbol;
             this.m_iconsEditor.Object002 = this.m_toolImportFile;
             this.m_iconsEditor.Object002Icon = "Import";

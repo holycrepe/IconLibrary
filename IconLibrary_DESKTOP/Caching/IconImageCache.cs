@@ -87,7 +87,7 @@ namespace IconLibrary.Caching
                     using (Stream inStream = svgIconLink.OpenRead())
                     {
                         Svg.SvgDocument svgDoc = Svg.SvgDocument.Open<Svg.SvgDocument>(inStream);
-                        System.Drawing.Bitmap targetBitmap = new System.Drawing.Bitmap(collectionInfo.IconSideWidth, collectionInfo.IconSideWidth);
+                        System.Drawing.Bitmap targetBitmap = new System.Drawing.Bitmap(collectionInfo.IconSideWidthPixel, collectionInfo.IconSideWidthPixel);
                         using (CustomSvgRenderer svgRenderer = new CustomSvgRenderer(targetBitmap, Color.FromArgb(collectionInfo.IconForeColor)))
                         {
                             svgDoc.Overflow = Svg.SvgOverflow.Auto;

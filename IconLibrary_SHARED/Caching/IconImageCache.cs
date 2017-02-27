@@ -40,7 +40,7 @@ namespace IconLibrary.Caching
             keyBuilder.Append(':');
             keyBuilder.Append($"{collectionInfo.IconAssemblyDefaultNamespace}.Assets.Icons.{collectionInfo.IconEnumType.Name}.{fileInfo.ImageName}");
             keyBuilder.Append('_');
-            keyBuilder.Append($"{collectionInfo.IconSideWidth}x{collectionInfo.IconSideWidth}");
+            keyBuilder.Append($"{collectionInfo.IconSideWidthPixel}x{collectionInfo.IconSideWidthPixel}");
             keyBuilder.Append('_');
             keyBuilder.Append(collectionInfo.IconForeColor);
             return keyBuilder.ToString();
@@ -56,7 +56,7 @@ namespace IconLibrary.Caching
         {
             string resourcePath = string.Empty;
             AssemblyResourceLink resourceLink = null;
-            int actIconsize = collectionInfo.IconSideWidth;
+            int actIconsize = collectionInfo.IconSideWidthPixel;
             do
             {
                 resourcePath =

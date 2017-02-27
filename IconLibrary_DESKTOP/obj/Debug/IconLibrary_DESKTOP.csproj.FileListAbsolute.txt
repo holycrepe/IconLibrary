@@ -5,3 +5,4 @@ D:\Projects\GitHub\RolandKoenig\IconLibrary\IconLibrary_DESKTOP\obj\Debug\IconLi
 D:\Projects\GitHub\RolandKoenig\IconLibrary\IconLibrary_DESKTOP\bin\Debug\Svg.dll
 D:\Projects\GitHub\RolandKoenig\IconLibrary\IconLibrary_DESKTOP\bin\Debug\Svg.pdb
 D:\Projects\GitHub\RolandKoenig\IconLibrary\IconLibrary_DESKTOP\bin\Debug\Svg.xml
+D:\Projects\GitHub\RolandKoenig\IconLibrary\IconLibrary_DESKTOP\obj\Debug\IconLibrary_DESKTOP.csprojResolveAssemblyReference.cache

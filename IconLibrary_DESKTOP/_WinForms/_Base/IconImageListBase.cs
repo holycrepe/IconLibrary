@@ -35,6 +35,27 @@ namespace IconLibrary
             m_collectionInfo = new IconCollectionInfo(typeof(EnumType));
         }
 
+        private void OnHostControl_HandleCreated(object sender, EventArgs e)
+        {
+            this.UpdateDpiScaleFactor();
+
+            foreach (var actTarget in m_targets)
+            {
+                actTarget.UpdateTargetObject();
+            }
+        }
+
+        private void UpdateDpiScaleFactor()
+        {
+            if(m_hostControl == null) { m_collectionInfo.DpiScaleFactor = 1f; }
+            if (!m_hostControl.IsHandleCreated) { m_collectionInfo.DpiScaleFactor = 1f; }
+
+            using (Graphics gfx = m_hostControl.CreateGraphics())
+            {
+                m_collectionInfo.DpiScaleFactor = gfx.DpiX / 96f;
+            }
+        }
+
         [Category("Configuration")]
         [DefaultValue(IconCollectionInfo.DEFAULT_ICON_SIDE_WIDTH)]
         public int ImageSideWidth
@@ -80,10 +101,23 @@ namespace IconLibrary
             {
                 if(m_hostControl != value)
                 {
-                    m_hostControl = value;
-                    foreach (var actTarget in m_targets)
+                    if(m_hostControl != null)
                     {
-                        actTarget.UpdateTargetObject();
+                        m_hostControl.HandleCreated -= OnHostControl_HandleCreated;
+                    }
+                    m_hostControl = value;
+                    if(m_hostControl != null)
+                    {
+                        m_hostControl.HandleCreated += OnHostControl_HandleCreated;
+                    }
+
+                    if (m_hostControl.IsHandleCreated)
+                    {
+                        this.UpdateDpiScaleFactor();
+                        foreach (var actTarget in m_targets)
+                        {
+                            actTarget.UpdateTargetObject();
+                        }
                     }
                 }
             }
@@ -118,6 +152,8 @@ namespace IconLibrary
             internal void UpdateTargetObject()
             {
                 if (m_owner == null) { return; }
+                if (m_owner.HostControl == null) { return; }
+                if (!m_owner.HostControl.IsHandleCreated) { return; }
 
                 ButtonBase targetButton = m_targetObject as ButtonBase;
                 if (targetButton != null)

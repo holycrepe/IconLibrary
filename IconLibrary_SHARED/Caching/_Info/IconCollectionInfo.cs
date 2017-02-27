@@ -16,6 +16,7 @@ namespace IconLibrary.Caching
             this.IconEnumType = enumType;
             this.IconSideWidth = DEFAULT_ICON_SIDE_WIDTH;
             this.IconForeColor = -16777216; // Black
+            this.DpiScaleFactor = 1f;
         }
 
         public string IconAssemblyDefaultNamespace
@@ -35,6 +36,11 @@ namespace IconLibrary.Caching
 
         public Assembly IconAssembly => this.IconEnumType.GetTypeInfo().Assembly;
 
+        public int IconSideWidthPixel
+        {
+            get { return (int)(IconSideWidth * DpiScaleFactor); }
+        }
+
         public Type IconEnumType
         {
             get;
@@ -48,6 +54,12 @@ namespace IconLibrary.Caching
         }
 
         public int IconForeColor
+        {
+            get;
+            set;
+        }
+
+        public float DpiScaleFactor
         {
             get;
             set;
