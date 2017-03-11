@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IconLibrary.IcvFormat;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -23,6 +24,8 @@ namespace IconLibrary.IconConverter.Files
         {
             return this.Name;
         }
+
+        public abstract IcvIcon ConvertToIcv();
 
         public abstract void Draw(Graphics target, int width, int height);
 

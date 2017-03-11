@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IconLibrary.IcvFormat;
 
 namespace IconLibrary.IconConverter.Files
 {
@@ -34,6 +35,24 @@ namespace IconLibrary.IconConverter.Files
                 renderer.ScaleTransform((float)width / dimensions.Width, (float)height / dimensions.Height, MatrixOrder.Append);
 
                 m_svgDoc.Draw(renderer);
+            }
+        }
+
+        public override IcvIcon ConvertToIcv()
+        {
+            using (var renderer = new SvgToIcvRenderer(this.FlatternTolerance))
+            {
+                float width = IcvIcon.REFERENCE_SIDE_WIDTH;
+                float height = IcvIcon.REFERENCE_SIDE_WIDTH;
+
+                renderer.SetBoundable(new GenericBoundable(0f, 0f, width, height));
+
+                var dimensions = m_svgDoc.GetDimensions();
+                renderer.ScaleTransform(width / dimensions.Width, height / dimensions.Height, MatrixOrder.Append);
+
+                m_svgDoc.Draw(renderer);
+
+                return renderer.GeneratedIcon;
             }
         }
 

@@ -61,6 +61,7 @@
     <Compile Include="Files\IconFileContainer.cs" />
     <Compile Include="Files\_Svg\SvgIconFile.cs" />
     <Compile Include="Files\_Icv\IcvIconFile.cs" />
+    <Compile Include="Files\_Svg\SvgToIcvRenderer.cs" />
     <Compile Include="Files\_Svg\SvgSimplifiedRenderer.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>

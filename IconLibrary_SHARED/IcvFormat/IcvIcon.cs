@@ -8,6 +8,7 @@ namespace IconLibrary.IcvFormat
     {
         #region Constants
         private const string FILE_FIGURE = "figure";
+        public const ushort REFERENCE_SIDE_WIDTH = 1000;
         #endregion
 
         private List<IcvFigure> m_figures;
@@ -18,6 +19,11 @@ namespace IconLibrary.IcvFormat
         public IcvIcon()
         {
             m_figures = new List<IcvFigure>();
+        }
+
+        public override string ToString()
+        {
+            return $"{m_figures.Count} figure(s)";
         }
 
         public List<IcvFigure> Figures

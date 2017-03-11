@@ -48,6 +48,7 @@ namespace IconLibrary.IconConverter
             this.m_iconsEditor = new IconLibrary.EditorIconImageList(this.components);
             this.m_dlgImportFile = new System.Windows.Forms.OpenFileDialog();
             this.m_refreshTimer = new System.Windows.Forms.Timer(this.components);
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.m_barTools.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.m_splitter)).BeginInit();
             this.m_splitter.Panel1.SuspendLayout();
@@ -70,7 +71,8 @@ namespace IconLibrary.IconConverter
             this.m_toolImportFile,
             this.m_toolImportFontSymbol,
             this.toolStripSeparator1,
-            this.m_toolRemoveIcon});
+            this.m_toolRemoveIcon,
+            this.toolStripButton1});
             this.m_barTools.Location = new System.Drawing.Point(0, 0);
             this.m_barTools.Name = "m_barTools";
             this.m_barTools.Size = new System.Drawing.Size(769, 27);
@@ -231,6 +233,16 @@ namespace IconLibrary.IconConverter
             this.m_refreshTimer.Interval = 500;
             this.m_refreshTimer.Tick += new System.EventHandler(this.OnRefreshTimer_Tick);
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.OnCmdTest_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -276,6 +288,7 @@ namespace IconLibrary.IconConverter
         private System.Windows.Forms.ToolStripButton m_toolImportFontSymbol;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton m_toolRemoveIcon;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }
 

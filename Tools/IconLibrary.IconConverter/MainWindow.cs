@@ -1,4 +1,5 @@
 ﻿using IconLibrary.IconConverter.Files;
+using IconLibrary.IcvFormat;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -85,6 +86,16 @@ namespace IconLibrary.IconConverter
                 Pens.Gray,
                 e.ClipRectangle.X, e.ClipRectangle.Y,
                 e.ClipRectangle.Width -1, e.ClipRectangle.Height - 1);
+        }
+
+        private void OnCmdTest_Click(object sender, EventArgs e)
+        {
+            SvgIconFile selectedFile = m_lstIcons.SelectedItem
+                as SvgIconFile;
+            if(selectedFile != null)
+            {
+                IcvIcon icvIcon = selectedFile.ConvertToIcv();
+            }
         }
     }
 }

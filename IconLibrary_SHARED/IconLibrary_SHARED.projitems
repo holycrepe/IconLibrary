@@ -16,6 +16,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Caching\_Util\AssemblyResourceLink.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IcvFormat\IcvFigure.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IcvFormat\IcvIcon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IcvFormat\IcvPath.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IcvFormat\IcvPoint.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)VectorIcon.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EditorIcon.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)_Misc.cs" />
