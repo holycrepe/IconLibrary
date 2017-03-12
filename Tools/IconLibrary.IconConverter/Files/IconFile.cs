@@ -27,8 +27,6 @@ namespace IconLibrary.IconConverter.Files
 
         public abstract IcvIcon ConvertToIcv();
 
-        public abstract void Draw(Graphics target, int width, int height);
-
         public string Name
         {
             get { return m_name; }

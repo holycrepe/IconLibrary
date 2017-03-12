@@ -23,10 +23,5 @@ namespace IconLibrary.IconConverter.Files
         {
             return m_figure;
         }
-
-        public override void Draw(Graphics target, int width, int height)
-        {
-          
-        }
     }
 }

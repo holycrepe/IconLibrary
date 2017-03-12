@@ -25,19 +25,6 @@ namespace IconLibrary.IconConverter.Files
             this.FlatternTolerance = 10f;
         }
 
-        public override void Draw(Graphics target, int width, int height)
-        {
-            using (var renderer = new SvgSimplifiedRenderer(target, Color.Black, this.FlatternTolerance))
-            {
-                renderer.SetBoundable(new GenericBoundable(0f, 0f, width, height));
-
-                var dimensions = m_svgDoc.GetDimensions();
-                renderer.ScaleTransform((float)width / dimensions.Width, (float)height / dimensions.Height, MatrixOrder.Append);
-
-                m_svgDoc.Draw(renderer);
-            }
-        }
-
         public override IcvIcon ConvertToIcv()
         {
             using (var renderer = new SvgToIcvRenderer(this.FlatternTolerance))

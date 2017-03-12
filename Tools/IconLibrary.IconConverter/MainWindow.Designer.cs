@@ -1,6 +1,4 @@
-﻿using IconLibrary.IconConverter.Util;
-
-namespace IconLibrary.IconConverter
+﻿namespace IconLibrary.IconConverter
 {
     partial class MainWindow
     {
@@ -37,6 +35,7 @@ namespace IconLibrary.IconConverter
             this.m_toolImportFontSymbol = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.m_toolRemoveIcon = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.m_splitter = new System.Windows.Forms.SplitContainer();
             this.m_splitterDetail = new System.Windows.Forms.SplitContainer();
             this.m_grpLoadedFiles = new System.Windows.Forms.GroupBox();
@@ -44,11 +43,10 @@ namespace IconLibrary.IconConverter
             this.m_dataSourceFiles = new System.Windows.Forms.BindingSource(this.components);
             this.m_grpProperties = new System.Windows.Forms.GroupBox();
             this.m_propSelectedFile = new System.Windows.Forms.PropertyGrid();
-            this.m_panRenderPanel = new IconLibrary.IconConverter.Util.RenderPanel();
             this.m_iconsEditor = new IconLibrary.EditorIconImageList(this.components);
             this.m_dlgImportFile = new System.Windows.Forms.OpenFileDialog();
             this.m_refreshTimer = new System.Windows.Forms.Timer(this.components);
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.m_panRenderPanel = new IconLibrary.IconConverter.View.IcvFileRendererControl();
             this.m_barTools.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.m_splitter)).BeginInit();
             this.m_splitter.Panel1.SuspendLayout();
@@ -111,6 +109,16 @@ namespace IconLibrary.IconConverter
             this.m_toolRemoveIcon.Name = "m_toolRemoveIcon";
             this.m_toolRemoveIcon.Size = new System.Drawing.Size(24, 24);
             this.m_toolRemoveIcon.Text = "Remove icon";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.OnCmdTest_Click);
             // 
             // m_splitter
             // 
@@ -202,16 +210,6 @@ namespace IconLibrary.IconConverter
             this.m_propSelectedFile.TabIndex = 0;
             this.m_propSelectedFile.ToolbarVisible = false;
             // 
-            // m_panRenderPanel
-            // 
-            this.m_panRenderPanel.BackColor = System.Drawing.Color.White;
-            this.m_panRenderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.m_panRenderPanel.Location = new System.Drawing.Point(5, 5);
-            this.m_panRenderPanel.Name = "m_panRenderPanel";
-            this.m_panRenderPanel.Size = new System.Drawing.Size(499, 431);
-            this.m_panRenderPanel.TabIndex = 0;
-            this.m_panRenderPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.OnPanRenderPanel_Paint);
-            // 
             // m_iconsEditor
             // 
             this.m_iconsEditor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -233,15 +231,15 @@ namespace IconLibrary.IconConverter
             this.m_refreshTimer.Interval = 500;
             this.m_refreshTimer.Tick += new System.EventHandler(this.OnRefreshTimer_Tick);
             // 
-            // toolStripButton1
+            // m_panRenderPanel
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.OnCmdTest_Click);
+            this.m_panRenderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.m_panRenderPanel.Icon = null;
+            this.m_panRenderPanel.Location = new System.Drawing.Point(5, 5);
+            this.m_panRenderPanel.Name = "m_panRenderPanel";
+            this.m_panRenderPanel.Size = new System.Drawing.Size(499, 431);
+            this.m_panRenderPanel.TabIndex = 0;
+            this.m_panRenderPanel.Text = "icvFileRendererControl1";
             // 
             // MainWindow
             // 
@@ -283,12 +281,12 @@ namespace IconLibrary.IconConverter
         private System.Windows.Forms.GroupBox m_grpLoadedFiles;
         private System.Windows.Forms.GroupBox m_grpProperties;
         private System.Windows.Forms.PropertyGrid m_propSelectedFile;
-        private RenderPanel m_panRenderPanel;
         private System.Windows.Forms.Timer m_refreshTimer;
         private System.Windows.Forms.ToolStripButton m_toolImportFontSymbol;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton m_toolRemoveIcon;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private View.IcvFileRendererControl m_panRenderPanel;
     }
 }
 

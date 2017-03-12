@@ -62,7 +62,6 @@
     <Compile Include="Files\_Svg\SvgIconFile.cs" />
     <Compile Include="Files\_Icv\IcvIconFile.cs" />
     <Compile Include="Files\_Svg\SvgToIcvRenderer.cs" />
-    <Compile Include="Files\_Svg\SvgSimplifiedRenderer.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,8 +70,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Util\RenderPanel.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="View\IcvFileRendererControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\IcvFileRendererControl.Designer.cs">
+      <DependentUpon>IcvFileRendererControl.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>

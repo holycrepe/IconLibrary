@@ -24,26 +24,6 @@ namespace IconLibrary.IconConverter
             InitializeComponent();
         }
 
-        private void OnPanRenderPanel_Paint(object sender, PaintEventArgs e)
-        {
-            var graphics = e.Graphics;
-            using (Brush fillBrush = new SolidBrush(Color.White))
-            {
-                graphics.FillRectangle(fillBrush, e.ClipRectangle);
-            }
-
-            int sideWidth = e.ClipRectangle.Width;
-            if(e.ClipRectangle.Height < sideWidth) { sideWidth = e.ClipRectangle.Height; }
-
-            var selectedFile = m_lstIcons.SelectedItem as IconFile;
-            if(selectedFile != null)
-            {
-                graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-
-                selectedFile.Draw(graphics, sideWidth, sideWidth);
-            }
-        }
-
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -72,6 +52,8 @@ namespace IconLibrary.IconConverter
             m_propSelectedFile.SelectedObject =
                 m_lstIcons.SelectedItem;
 
+            m_panRenderPanel.Icon = (m_lstIcons.SelectedItem as IconFile)?.ConvertToIcv();
+            
             m_panRenderPanel.Invalidate();
         }
 

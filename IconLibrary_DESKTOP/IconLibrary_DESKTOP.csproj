@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Util\CustomSvgRenderer.cs" />
+    <Compile Include="_WinForms\IcvFileRenderer.cs" />
     <Compile Include="_WinForms\VectorIconImageList.cs">
       <SubType>Component</SubType>
     </Compile>

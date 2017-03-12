@@ -35,6 +35,9 @@ namespace IconLibrary.IconConverter.Files
             m_flatternTolerance = flatternTolerance;
 
             m_generatedIcon = new IcvIcon();
+
+            m_scalingX = 1f;
+            m_scalingY = 1f;
         }
 
         public void Dispose()
@@ -127,6 +130,8 @@ namespace IconLibrary.IconConverter.Files
 
         public void ScaleTransform(float sx, float sy, MatrixOrder order = MatrixOrder.Append)
         {
+            if(m_scalingX > 1.1f) { return;  }
+
             m_scalingX = sx;
             m_scalingY = sy;
 
