@@ -15,6 +15,7 @@ namespace IconLibrary.IconConverter.Files
     public class SvgIconFile : IconFile
     {
         private SvgDocument m_svgDoc;
+        private float m_flatternTolerance;
 
         public SvgIconFile(string filePath)
             : base(Path.GetFileNameWithoutExtension(filePath))
@@ -45,8 +46,15 @@ namespace IconLibrary.IconConverter.Files
 
         public float FlatternTolerance
         {
-            get;
-            set;
+            get { return m_flatternTolerance; }
+            set
+            {
+                if(m_flatternTolerance != value)
+                {
+                    m_flatternTolerance = value;
+                    RaisePropertyChanged(nameof(FlatternTolerance));
+                }
+            }
         }
 
         //*********************************************************************

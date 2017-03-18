@@ -16,8 +16,6 @@ namespace IconLibrary.WinFormsSample
         public MainWindow()
         {
             InitializeComponent();
-
-            IconImageCache.Current.GetGdiImage(EditorIcon.Floor, 16, Color.Black);
         }
     }
 }

@@ -27,6 +27,11 @@ namespace IconLibrary.IconConverter.Files
 
         public abstract IcvIcon ConvertToIcv();
 
+        protected void RaisePropertyChanged(string propName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
+        }
+
         public string Name
         {
             get { return m_name; }

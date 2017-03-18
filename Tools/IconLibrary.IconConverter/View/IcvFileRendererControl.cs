@@ -37,17 +37,17 @@ namespace IconLibrary.IconConverter.View
             var graphics = pe.Graphics;
             var renderRect = pe.ClipRectangle;
 
-            // Configure graphics
-            graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            graphics.ScaleTransform(
-                graphics.DpiX / 96f,
-                graphics.DpiY / 96f);
-
             // Render background
             using (var bgBrush = new SolidBrush(this.BackColor))
             {
                 graphics.FillRectangle(bgBrush, renderRect);
             }
+
+            // Configure graphics
+            graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            graphics.ScaleTransform(
+                graphics.DpiX / 96f,
+                graphics.DpiY / 96f);
 
             // Cancel here if we have no icon
             if(m_icvIcon == null) { return; }

@@ -29,7 +29,26 @@ namespace IconLibrary.IconConverter
             base.OnLoad(e);
 
             m_fileContainer = new IconFileContainer();
+            m_fileContainer.IconCollectionChanged += OnFileContainer_IconCollectionChanged;
+            m_fileContainer.PropertyChanged += OnFileContainer_PropertyChanged;
+
             m_dataSourceFiles.DataSource = m_fileContainer;
+        }
+
+        private void OnFileContainer_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            switch(e.PropertyName)
+            {
+                case nameof(IconFileContainer.PreviewIcon):
+                    m_panRenderPanel.Icon = m_fileContainer.PreviewIcon;
+                    m_panRenderPanel.Invalidate();
+                    break;
+            }
+        }
+
+        private void OnFileContainer_IconCollectionChanged(object sender, EventArgs e)
+        {
+            m_dataSourceFiles.ResetBindings(false);
         }
 
         private void OnCmdImport_Click(object sender, EventArgs e)
@@ -47,19 +66,18 @@ namespace IconLibrary.IconConverter
             }
         }
 
-        private void OnLstIcons_SelectedIndexChanged(object sender, EventArgs e)
+        private void OnCmdDelete_Click(object sender, EventArgs e)
         {
-            m_propSelectedFile.SelectedObject =
-                m_lstIcons.SelectedItem;
+            var selectedIcon = m_lstIcons.SelectedItem as IconFile;
+            if(selectedIcon == null) { return; }
 
-            m_panRenderPanel.Icon = (m_lstIcons.SelectedItem as IconFile)?.ConvertToIcv();
-            
-            m_panRenderPanel.Invalidate();
+            m_fileContainer.IconFiles.Remove(selectedIcon);
         }
 
-        private void OnRefreshTimer_Tick(object sender, EventArgs e)
+        private void OnLstIcons_SelectedIndexChanged(object sender, EventArgs e)
         {
-            m_panRenderPanel.Invalidate();
+            m_propSelectedFile.SelectedObject = m_lstIcons.SelectedItem;
+            m_fileContainer.SelectedIcon = m_lstIcons.SelectedItem as IconFile;
         }
 
         private void OnSplitterPanel_Paint(object sender, PaintEventArgs e)
@@ -68,16 +86,6 @@ namespace IconLibrary.IconConverter
                 Pens.Gray,
                 e.ClipRectangle.X, e.ClipRectangle.Y,
                 e.ClipRectangle.Width -1, e.ClipRectangle.Height - 1);
-        }
-
-        private void OnCmdTest_Click(object sender, EventArgs e)
-        {
-            SvgIconFile selectedFile = m_lstIcons.SelectedItem
-                as SvgIconFile;
-            if(selectedFile != null)
-            {
-                IcvIcon icvIcon = selectedFile.ConvertToIcv();
-            }
         }
     }
 }
