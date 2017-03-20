@@ -82,7 +82,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tests\IconFileContainerTests.cs" />
     <Compile Include="View\IcvFileRendererControl.cs">
       <SubType>Component</SubType>
     </Compile>
