@@ -35,6 +35,9 @@
   <PropertyGroup>
     <ApplicationIcon>Assets\Logo.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -88,6 +91,9 @@
     <Compile Include="View\IcvFileRendererControl.Designer.cs">
       <DependentUpon>IcvFileRendererControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\IcvFileRendererControlWpf.xaml.cs">
+      <DependentUpon>IcvFileRendererControlWpf.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -100,6 +106,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="app.manifest" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\IconLibrary.IconConverter.Files.IconFile.datasource" />
     <None Include="Properties\DataSources\IconLibrary.IconConverter.Files.IconFileContainer.datasource" />
@@ -125,7 +132,12 @@
   <ItemGroup>
     <Content Include="Assets\Logo.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Page Include="View\IcvFileRendererControlWpf.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
